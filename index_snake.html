@@ -4,32 +4,49 @@
 	<title>Jogo da cobrinha</title>
 </head>
 <body>
+    
+    <div id = "score" width="600" height="600">0</div>
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+        </style>
+    </div>
+    <br>
 
+	<div id="score"></div>
 	<canvas id="stage" width="600" height="600"></canvas>
 	<script type="text/javascript">
 		
 		window.onload = function(){
 
 			var stage = document.getElementById('stage');
-			var ctx = stage.getContext("2d");
-			document.addEventListener("keydown", keyPush);
+            var score = document.getElementById('score');
+			
+            var ctx = stage.getContext("2d");
+			
+            document.addEventListener("keydown", keyPush);
 			setInterval(game, 80);
 			const vel = 1;
 
-			
+			//A FAZER - ARRUMAR OS NOMES DAS VARIAVEIS.
             var vx = vy = 0;
             var px = 10 
             var py = 15;
             var lp = 20;
             var tp = 30;
-
+            var score = 0;
             var qp = 20;
             var ax = ay = 15;
 
             var trail = [];
             tail = 5;
 
+
+
+			//REFATORAR AS FUNÇÕES DIVIDIR MELHOR OQUE CADA COISA VAI FAZER
+
 			function game(){
+
                 px += vx;
 				py += vy;
 
@@ -46,13 +63,13 @@
 					py = 0;
 				}
 
-				ctx.fillStyle = "black";
-				ctx.fillRect(0,0, stage.width, stage.height);
+				ctx.fillStyle = "yellow";
+				ctx.fillRect(0, 0, stage.width, stage.height);
 
 				ctx.fillStyle = "red";
 				ctx.fillRect(ax*tp, ay*tp, tp,tp);
 
-				ctx.fillStyle = "gray";
+				ctx.fillStyle = "black";
 				
                 for (var i = 0; i < trail.length; i++) {
                 
@@ -62,7 +79,8 @@
 				
                     {
 						vx = vy=0;
-						tail =5;
+						tail = 1;
+                        
 					}
 				}
 
@@ -72,41 +90,47 @@
 				}
 
 				if (ax==px && ay==py){
+					score++
 					tail++;
 					ax = Math.floor(Math.random()*qp);
 					ay = Math.floor(Math.random()*qp);
-				}
+
+                    
+					
+                }
 
 			}
 
 			function keyPush(event){
-
+				var before;
 				switch (event.keyCode) {
-					case 37: // Left
-						vx = -vel;
-						vy = 0;
-						break;
-					case 38: // up
-						vx = 0;
-						vy = -vel;
-						break;
-					case 39: // right
-						vx = vel;
-						vy = 0;
-						break;
-					case 40: // down
-						vx = 0;
-						vy = vel;
-						break;			
-					default:
-						break;
+                    case 37: // Left
+                        vx = -vel;
+                        vy = 0;
+                        break;
+                    case 38: // up
+                        vx = 0;
+                        vy = -vel;
+                        break;
+                    case 39: // right
+                        vx = vel;
+                        vy = 0;
+                        break;
+                    case 40: // down
+                        vx = 0;
+                        vy = vel;
+                        break;          
+                    default:
+                        
+                        break;
+                }
+
+						
 				}
-
-
+				v_score = document.getElementById('score').innerHTML = + score + " "+before;
 			}
-
-		}
-
+			
+		
 	</script>
 </body>
 </html>
