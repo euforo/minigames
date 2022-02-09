@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<head>
+<title>Rofoeu</title>
+
+<link rel="shortcut icon" href="{Favicon}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!---
+    
+    moongate about page by SAGE / https://demontimes.tumblr.com
+    
+    - the places where you can edit are marked / search "edit here"
+    - feel free to send me an ask if you have any questions!
+    
+    CREDITS:
+    - phosphor icons / https://phosphoricons.com/
+    - tippy.js tooltips / https://atomiks.github.io/tippyjs/
+    - google fonts / https://fonts.google.com/
+    
+--->
+
+<!----- GOOGLE FONTS ---->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+
+<!---- ICONS ---->
+<script src="https://unpkg.com/phosphor-icons"></script>
+<script src="//pull.cappuccicons.com/cpf.js"></script>
+
+<!---- TOOLTIPS ---->
+
+<script src="https://unpkg.com/popper.js@1"></script>
+<script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
+
+<!----- CSS ----->
+
+<style type="text/css">
+
+/*--- EDIT HERE ---*/
+
+/*--- COLORS ---*/
+:root {
+  --background: #f5f5f5;
+  --content-background: #fff;
+  --text: #7476a2;
+  --link: #8175ff;
+  --accent: #6251d1;
+  --title: #9791ff;
+  --borders: #d8d8d8;
+  --shadow: #ddd;
+  --gradient-one: #8e94ec;
+  --gradient-two: #bfc3ff;
+  --gradient-text: #fff;
+  
+  /*--- OTHER ---*/
+  --body-font: 'Karla'; /*-- lmk if you want help changing the font! --*/
+  --font-size: 15px;
+  --border-radius: 5px;
+  --text-shadow: 0 0 10px; /*-- change to 0 if you don't want a glow --*/
+}
+
+/*----- TOOLTIPS -----*/
+
+.tippy-tooltip.custom-theme {
+    background-color: var(--title);
+    color: var(--content-background);
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 5px 0;
+    font-size: 0.9em;
+    border-radius:var(--border-radius);
+    margin: 5px 0;
+}
+
+/*---- SCROLLBAR ----- */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--background);
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--gradient-one), var(--gradient-two));
+    border-radius: 5px;
+}
+
+body {
+    font-family: var(--body-font), sans-serif;
+    font-size: var(--font-size);
+    color: var(--text);
+    background: var(--background);
+    line-height: 160%;
+    letter-spacing: 0.2px;
+    word-wrap: break-word;
+}
+
+a {
+    color: var(--link);
+    text-decoration:none;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+a:hover {
+    color: var(--accent);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+p {margin-top: 1.2em;}
+
+h2 {font-size:1.1em;letter-spacing:1px;margin:10px 0 -10px 0;color:var(--title);}
+
+small {font-size: 0.9em;}
+big {font-size: 1.1em;}
+b, bold, strong {color: var(--title);}
+
+blockquote {
+    padding: 0 0 0 1em;
+    border-left: 1px solid var(--borders);
+    margin: 1em 0 1em 1em;
+}
+
+li {list-style-type:circle;}
+li::marker {color:var(--accent);}
+
+.tmblr-iframe-compact .tmblr-iframe--unified-controls {
+    z-index: 999999999!important;
+    opacity:0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.tmblr-iframe-compact .tmblr-iframe--unified-controls:hover {
+    opacity:1;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+/*----- TOP NAVIGATION -----*/
+
+header {
+    position: fixed;
+    text-align:center;
+    background:linear-gradient(to right, var(--gradient-one), var(--gradient-two));
+    padding-top:1em;
+    padding-bottom:.5em;
+    width: 100%;
+    height:40px;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 99999999;
+}
+
+header nav {
+    display:flex; justify-content:center;
+}
+
+header nav a {margin:0 1em 0 1em;}
+
+header nav i {
+    color:var(--gradient-text);
+    padding:5px;
+    border-radius:100%;
+    font-size:1.5em;
+    text-shadow:var(--text-shadow);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+header nav i:hover {
+    color:var(--accent);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+/*----- BASICS -----*/
+
+.subtitle {
+    text-align:center;
+    margin-bottom:1em;
+    font-size:1.3em;
+    color:var(--title);
+    font-weight:bold;
+}
+
+/*----- CONTENT -----*/
+
+#content {
+    position:relative;
+    width:800px;
+    margin:auto;
+}
+
+.about-wrap {margin:1em;}
+.about-wrap:first-of-type {margin-top:100px;}
+.about-wrap:last-of-type {margin-bottom:100px;}
+
+.about {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.about #text {
+    width:60%;
+    height:150px;
+    padding:1em;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    background:linear-gradient(to top right, var(--gradient-one), var(--gradient-two));
+    border-radius:var(--border-radius);
+    box-shadow:1px 1px 5px 1px var(--shadow);
+}
+
+.about #text li {
+    margin:.5em;
+    list-style-type:none;
+    width:36%;
+}
+
+.about #text i {
+    font-size:1.3em;
+    padding:8px;
+    text-shadow:var(--text-shadow);
+    border-radius:var(--border-radius);
+    background:rgba(255,255,255,.1);
+    color:var(--accent);
+}
+
+.about #text span {
+    display:inline-block;
+    vertical-align:top;
+    margin-top:5px;
+    margin-left:.5em;
+    color:var(--gradient-text);
+}
+
+.about #abt-img {
+    width:40%;
+    height:150px;
+    margin-right:1em;
+    padding:1em;
+    background:var(--content-background);
+    border-radius:var(--border-radius);
+    display:flex;
+	flex-wrap:nowrap;
+    justify-content:flex-start;
+    align-items:center;
+    box-shadow:1px 1px 5px 1px var(--shadow);
+}
+
+#abt-img img{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:100%;
+    padding:4px;
+    background:linear-gradient(to right, var(--gradient-one), var(--gradient-two));
+}
+
+#abt-img .txt {
+    margin-left:1em;
+}
+
+#abt-img li {
+    color:var(--accent);
+    list-style-type:none;
+    font-size:.9em;
+}
+
+#abt-img li b {
+    font-weight:bold;
+    color:var(--title);
+    font-size:1.3em;
+}
+
+.bio {
+    padding:1.5em;
+    letter-spacing:.1em;
+    color:var(--text);
+    border-radius:var(--border-radius);
+    background:var(--content-background);
+    box-shadow:1px 1px 5px 1px var(--shadow);
+}
+
+.bio p:last-of-type {margin-bottom:0;}
+
+.bio a {
+  display: inline-block;
+  position: relative;
+  border-bottom:2px solid var(--borders);
+}
+
+.bio a:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(to right, var(--gradient-one), var(--gradient-two));
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.bio a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.favs {
+    display:flex;
+    justify-content:space-between;
+    padding:1em;
+    color:var(--text);
+    border-radius:var(--border-radius);
+    background:var(--content-background);
+    box-shadow:1px 1px 5px 1px var(--shadow);
+}
+
+.favs .subtitle {
+    padding:8px;
+    color:var(--gradient-text);
+    border-radius:var(--border-radius);
+    background:linear-gradient(to right, var(--gradient-one), var(--gradient-two));
+    text-align:center;
+}
+
+.favs .subtitle i {
+    font-size:1.1em;
+    padding:8px;
+    text-shadow:var(--text-shadow);
+    color:var(--accent);
+}
+
+.favs .subtitle span {
+    font-size:.9em;
+    display:inline-block;
+    vertical-align:top;
+    margin-top:7px;
+    font-weight:normal;
+}
+
+.favs #ftext {padding:.5em;}
+.favs #ftext li {display:inline-block;}
+.favs #ftext li:not(:last-child):after {
+    content:'•';
+    color:var(--accent);
+    padding:0 .5em 0 .5em;
+}
+
+.likes, .dislikes {
+    width:50%;
+    padding:10px;
+}
+
+.elsewhere {
+    padding:1em;
+    border-radius:var(--border-radius);
+    background:var(--content-background);
+    box-shadow:1px 1px 5px 1px var(--shadow);
+}
+
+.blog-wrap {
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+}
+
+.blog {
+    margin:.5em;
+}
+
+.blog img {
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    padding:2px;
+    background:linear-gradient(to right, var(--gradient-one), var(--gradient-two));
+}
+
+#blog-desc {
+    display:inline-block;
+    vertical-align:top;
+    margin-left:.5em;
+    margin-top:.3em;
+}
+
+.blog a:hover #blog-desc b {
+    color:var(--accent);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+    
+.blog a:hover #blog-sub {
+    color:var(--title);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+#blog-desc b {
+    font-size:1.05em;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+#blog-sub {
+    font-size:.9em;
+    margin-left:.2em;
+    color:var(--accent);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.social-wrap {
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    margin-top:1em;
+}
+
+.social {
+    margin:.5em;
+}
+
+.social i {
+    font-size:1.4em;
+    color:var(--gradient-text);
+    text-shadow:var(--text-shadow);
+    padding:8px;
+    border-radius:var(--border-radius);
+    background:linear-gradient(to right, var(--gradient-one), var(--gradient-two));
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.social i:hover {color:var(--accent);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;}
+
+/*--- RESPONSIVENESS ----*/
+    
+@media only screen and (max-width: 1100px) {
+.tmblr-iframe-compact .tmblr-iframe--unified-controls {display:none;}
+}
+
+@media only screen and (max-width: 850px) {
+    
+#content {margin:100px auto; width:90%;}
+
+.about {justify-content:space-evenly; flex-wrap:wrap;}
+.about #abt-img {width:100%; margin-bottom:1em; height:auto; margin-right:0;justify-content:center;}
+.about #text {width:100%; height:auto;}
+
+.tmblr-iframe-compact .tmblr-iframe--unified-controls {display:none;}
+
+}
+
+@media only screen and (max-width:450px) {
+
+#content {width:100%;}
+
+.about #text li {width:100%;}
+    
+.favs .subtitle span {display:none;}
+.favs #ftext li {display:block;}
+.favs #ftext li:not(:last-child):after {display:none;}
+.favs #ftext li:before {
+    content:'•';
+    color:var(--accent);
+    padding:0 .5em 0 .5em;
+}
+
+.blog-wrap {justify-content:flex-start;}
+
+}
+    
+</style>    
+</head>
+<body>
+
+<!---- EDIT HERE ---->
+
+<!---- HEADER ---->
+<header>
+    <nav>
+        <a title="home" href="/"><i class="ph-house-fill"></i></a>
+        <a title="Contato" href="/ask"><i class="ph-chats-circle-fill"></i></a>
+        <a title="link 1 title" href="/"><i class="ph-sparkle-fill"></i></a>
+        <a title="link 2 title" href="/"><i class="ph-planet-fill"></i></a>
+        <a title="link 3 title" href="/"><i class="ph-moon-stars-fill"></i></a>
+<!---- CREDIT: DO NOT TOUCH ---->
+        <a title="page by sage" href="https://demontimes.tumblr.com/"><i class="ph-ghost-fill"></i></a>
+    </nav>
+</header>
+
+<!--- main content --->
+<div id="content">
+
+<div class="about-wrap">
+    <div class="about">
+<!--- by default this section will show your blog's avatar, title, and url --->
+        <div id="abt-img">
+<img src="{}">
+            <div class="txt">
+            <li><b>{title}</b></li>
+            <li>@{name}</li>
+            </div>
+        </div>
+        
+        <div id="text">
+<!--- feel free to change the icons! when you change the text make sure the <span> stays in place --->
+            <li><i class="ph-user"></i><span>Python</span></li>
+            <li><i class="ph-heart"></i><span>SQL</span></li>
+            <li><i class="ph-leaf"></i><span>js</span></li>
+            <li><i class="ph-sun"></i><span>VBA</span></li>
+            <!--<li><i class="ph-cake"></i><span>age</span></li>
+            //<li><i class="ph-map-pin"></i><span>location</span></li>--->
+        </div>
+    </div>
+</div>
+
+<div class="about-wrap">
+<!--- put your bio/description below --->
+    <div class="bio"><div class="subtitle">Sobre</div>
+        Rafael - 27 anos <br>
+        desenvolvedor em desenvolvimento.<br>
+        São Paulo - SP <br>
+    </div>
+</div>
+
+
+<div class="about-wrap">
+    <div class="elsewhere"><div class="subtitle">Contato</div>
+
+    <div class="blog-wrap">
+    
+        <div class="blog"><img src="">
+            <a href="">
+            <div id="blog-desc"><b>@euforo</b>
+            <div id="blog-sub">Github</div></div>
+            </a>
+        </div>
+        
+        <div class="blog"><img src="">
+            <a href="">
+            <div id="blog-desc"><b>@euforo</b>
+            <div id="blog-sub">Twitter</div></div>
+            </a>
+        </div>
+        
+
+    </div>
+</div>
+
+
+<script>
+
+// tooltips
+
+tippy('[title]', {
+    theme: 'custom',
+    arrow: false,
+    followCursor: true,
+    delay: 100,
+    placement: 'top',
+    zIndex: 9999999999,
+    maxWidth: 400,
+ 
+    content(reference) {
+      const title = reference.getAttribute('title');
+      reference.removeAttribute('title');
+      return title;
+    },
+ });
+ 
+</script>
+
+    
+</body>
+</html>
